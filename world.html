@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>GeoAR.js demo</title>
+	<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+	<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+</head>
+<script>
+	window.addEventListener('click', function () { 
+document.querySelector('#video').play();
+});
+</script>
+<body>
+	<a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
+		<a-assets>
+			<a-asset-item id="exoFont" src="fonts/exoBlack.typeface.json"></a-asset-item>
+			<img id="couple" src="images/couple.png" />
+			<img id="couple2" src="images/couple2.png" />
+			<img id="couple3" src="images/couple3.png" />
+			<img id="couple4" src="images/couple4.png" />
+			<img id="couple5" src="images/couple5.jpg" />
+			<img id="cartoon" src="images/couple_cartoon.png" />
+			<img id="background" src="images/background.png" />
+			<img id="siyaratech" src="images/siyaratech.png" />
+
+			<!-- Video element for texture -->
+			<video id="video" autoplay loop muted playsinline webkit-playsinline>
+				<source src="video.mp4" webkit-playsinline type="video/mp4">
+			</video>
+
+			<a-asset-item id="boy" src="models/boy.glb"></a-asset-item>
+			<a-asset-item id="girl" src="models/girl.glb"></a-asset-item>
+
+			<a-asset-item id="tree" src="models/tree.gltf"></a-asset-item>
+
+		</a-assets>
+		<!-- <a-box width="0.25" height="0.25" depth="0.25" position="-0.25 1.125 -0.75" rotation="0 45 0" color="#4CC3D9"></a-box>
+    <a-sphere position="0 1.3125 -1.25" radius="0.3125" color="#EF2D5E"></a-sphere>
+    <a-cylinder position="0.25 1.1875 -0.75" radius="0.125" height="0.375" color="#FFC65D"></a-cylinder>
+    <a-plane position="0 0 -1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4" shadow></a-plane>
+	<a-plane position="0 0 -2" scale="3 3 3" rotation="0 0 0" width="1.5" height="1"
+	material="src: #video; shader: flat;" radius="0.2"></a-plane> -->
+	<a-plane position="0 2 -4" scale="3 3 3" rotation="0 0 0" width="1.5" height="1"
+				material="src: #video; shader: flat;" radius="0.2"></a-plane>
+		<a-entity position="-1.2 0 -1" rotation="0 180 0" scale="1 1 1" gltf-model="#boy">
+		</a-entity>
+
+		<a-entity position="1.2 0 -1" rotation="0 180 0" scale="1 1 1" gltf-model="#girl">
+		</a-entity>
+
+		<!-- Image entities positioned at different locations around the marker -->
+		<!-- Cartoon Image -->
+		<a-plane material="src: #couple; " position="-3 4.2 -4" rotation="0 30 0" scale="1.5 " width="1" height="2">
+		</a-plane>
+
+		<a-plane material="src: #couple2; " position="-3  1.8 -4" rotation="0 30 0" scale="1.5 " width="1" height="2">
+		</a-plane>
+		<a-plane material="src: #couple3; " position="-3  0 -4" rotation="0 30 0" scale="1.5 " width="1.3" height="1">
+		</a-plane>
+
+		<a-plane material="src: #couple4; " position="3  4.2 -4" rotation="0 -30 0" scale="1.5 " width="1" height="2">
+		</a-plane>
+		<a-plane material="src: #couple5; " position="3  1.8 -4" rotation="0 -30 0" scale="1.5 " width="1" height="2">
+		</a-plane>
+		<a-plane material="src: #siyaratech; " position="3  0 -4" rotation="0 -30 0" scale="1.5 ">
+		</a-plane>
+
+
+
+
+		<a-plane material="src: #background; " position="0 0 -3" rotation="-90 0 0" scale="4 4 4 ">
+		</a-plane>
+		<a-camera rotation-reader> </a-camera>
+	</a-scene>
+</body>
+
+</html>
